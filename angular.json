@@ -30,6 +30,7 @@
                 "output": "./assets/cesium"
               },
               "src/favicon.ico",
+              "src/CNAME",
               "src/assets"
             ],
             "styles": [

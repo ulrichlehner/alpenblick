@@ -25,7 +25,6 @@
     "angular-animations": "^0.11.0",
     "angular-cesium": "^0.0.73",
     "cesium": "^1.91.0",
-    "ngx-matomo": "^0.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "xstate": "^4.30.3",
