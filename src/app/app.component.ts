@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MapTerrainProviderOptions, ViewerConfiguration } from 'angular-cesium';
-import { MatomoInjector, MatomoTracker } from 'ngx-matomo';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +15,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
   providers: [ViewerConfiguration]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   MapTerrainProviderOptions = MapTerrainProviderOptions;
 
-  constructor(
-    private viewerConf: ViewerConfiguration,
-    private matomoInjector: MatomoInjector,
-    private matomoTracker: MatomoTracker
-  ) {
+  constructor(private viewerConf: ViewerConfiguration) {
     // tslint:disable-next-line: max-line-length
     // See https://github.com/AnalyticalGraphicsInc/cesium/blob/master/Source/Widgets/BaseLayerPicker/createDefaultTerrainProviderViewModels.js
     const tarrainViewModels: any[] = [];
@@ -150,12 +144,5 @@ export class AppComponent implements OnInit {
 
       viewer.scene.frameState.creditDisplay.addDefaultCredit(new Cesium.Credit('<a href="https://inspirespace.co/imprint/" target="_blank">Imprint</a>'))
     };
-  }
-
-  ngOnInit() {
-    if (environment.matomo) {
-      this.matomoInjector.init(environment.matomo.url, environment.matomo.id);
-      this.matomoTracker.disableCookies();
-    }
   }
 }
